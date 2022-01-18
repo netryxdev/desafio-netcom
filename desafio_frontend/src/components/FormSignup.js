@@ -2,19 +2,23 @@ import React from 'react';
 import useForm from './useForm';
 import validate from './validateInfo'
 import './Form.css'
-//import InputForm from './components/inputForm/InputForm';
 
-const FormSignup = ({submitForm}) => {
+
+const FormSignup = ({submitForm }) => {
     const { handleChange, values, handleSubmit, errors }
     = useForm(submitForm, validate);
-
+    
     return (
         
         <div className='form-content-left'>
             <form className='form' onSubmit={handleSubmit}>
                 
                 <h1>Cadastrar</h1>
-                
+
+                <div className='cadastrarcom'>
+            <p>-------<span><strong> Cadastrar com</strong></span></p>
+                </div>
+
                 <div className='form-geral'>
                     <div className='social-button'>
 
@@ -94,15 +98,24 @@ const FormSignup = ({submitForm}) => {
                                 {errors.password && <p>{errors.password}</p>}
                             </div>
                 </div>
-            </div>
+            </div>            
+                            
+                            <div className='checkbox'>
+                                <input type="checkbox" id="termos_de_contrato"
+                                /><label for="termos_de_contrato">  Li e concordo com os termos de serviço e/ou Política de privacidade</label>
+                            </div>
+
                                 <button className='form-input-btn' type='submit'>
                                     <img src='img/icon-arrow.png' alt='arrow' className='seta'/> 
                                 </button>
 
                                 <span className='form-input-login'>
-                                Já tem o usuário? Faça o <a href="#">Login</a>
+                                Já tem o usuário? Faça o <a
+                                href="#">Login</a>
                                 </span>
+                            
             </form>
+            
         </div>
     )
 }

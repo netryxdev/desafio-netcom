@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import FormSignup from './FormSignup'
 import FormSuccess from './FormSuccess'
+//import Checkbox from './components/Checkbox';
 
 import './Form.css'
 
@@ -21,7 +22,7 @@ const Form = () => {
                     
 
                     {!isSubmitted ? (<FormSignup submitForm=
-                    {submitForm} />) : (<FormSuccess />)} 
+                    {submitForm}  />) : (<FormSuccess/>)} 
                 </div>
             
         </div>
