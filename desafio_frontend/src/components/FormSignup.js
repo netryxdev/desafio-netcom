@@ -9,12 +9,16 @@ const FormSignup = ({submitForm}) => {
     = useForm(submitForm, validate);
 
     return (
+        
         <div className='form-content-left'>
             <form className='form' onSubmit={handleSubmit}>
+                
                 <h1>Cadastrar</h1>
+                
+                <div className='form-geral'>
                     <div className='social-button'>
 
-                        <a class='ig-button'href='#'>
+                        <a className='ig-button'href='#'>
                             Cadastre-se 
                             <img src='img/icon-instagram.png'
                             alt='ig' height='30px' width='30px'
@@ -32,10 +36,12 @@ const FormSignup = ({submitForm}) => {
                         </a>
                     </div>
 
+
                     <div className='form-geral'  >
+
                         <div className='form-inline'>
+                            
                             <div className='form-inputs'>
-                    
                                 <label htmlFor='username'
                                 className='form-label'>
                                 Nome
@@ -51,11 +57,11 @@ const FormSignup = ({submitForm}) => {
                                 onChange={handleChange}
                                 />
                                 {errors.username && <p>{errors.username}</p>}
-                    
                             </div>
+
                             <div className='form-inputs'>
                                 <label htmlFor='email'
-                                lassName='form-label'>
+                                className='form-label'>
                                 Email
                                 </label>
                                 <input
@@ -70,30 +76,32 @@ const FormSignup = ({submitForm}) => {
                                 {errors.email && <p>{errors.email}</p>}
                             </div>
                     </div>
-                <div className='form-inputs'>
-                    <label htmlFor='password'
-                    className='form-label'>
-                    Senha
-                    </label>
-                        <input
-                        id='password'
-                        type="password"
-                        name="password"
-                        className="form-input"
-                        placeholder='Digite sua senha'
-                        value={values.password}
-                        onChange={handleChange}
-                        />
-                        {errors.password && <p>{errors.password}</p>}
+
+                            <div className='form-inputs'>
+                                <label htmlFor='password'
+                                className='form-label'>
+                                Senha
+                                </label>
+                                <input
+                                id='password'
+                                type="password"
+                                name="password"
+                                className="form-input"
+                                placeholder='Digite sua senha'
+                                value={values.password}
+                                onChange={handleChange}
+                                />
+                                {errors.password && <p>{errors.password}</p>}
+                            </div>
                 </div>
             </div>
-                <button className='form-input-btn' type='submit'>
-                    <img src='img/icon-arrow.png' alt='arrow' className='seta'/> 
-                </button>
-                <span className='form-input-login'>
-                    Já tem o usuário? Faça o <a
-                    href="#">Login</a>
-                </span>
+                                <button className='form-input-btn' type='submit'>
+                                    <img src='img/icon-arrow.png' alt='arrow' className='seta'/> 
+                                </button>
+
+                                <span className='form-input-login'>
+                                Já tem o usuário? Faça o <a href="#">Login</a>
+                                </span>
             </form>
         </div>
     )
