@@ -1,8 +1,6 @@
 # desafio-netcom
 
-## This repository is without the node modules, and you will need to download and install in your terminal with the command: npm install
-
-*Abra seu terminal e digite
+##Abra seu terminal e digite
 
 $ git clone { url do GitHub repo}
 
