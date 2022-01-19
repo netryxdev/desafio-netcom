@@ -4,13 +4,13 @@
 
 $ git clone { url do GitHub repo}
 
-*Isso clona o repositório
+* Isso clona o repositório
 
 cd na nova pasta e digite
 
 $ npm install
 
-*Isso instala as dependências necessárias
+* Isso instala as dependências necessárias
 
-*Para executar o projeto React.
+* Para executar o projeto React.
 $ npm start
