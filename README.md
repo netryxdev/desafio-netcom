@@ -1,6 +1,6 @@
 # desafio-netcom
 
-##Abra seu terminal e digite
+## Abra seu terminal e digite
 
 $ git clone { url do GitHub repo}
 
