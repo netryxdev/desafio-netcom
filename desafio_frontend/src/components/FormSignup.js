@@ -1,17 +1,51 @@
-import React from 'react';
-import useForm from './useForm';
-import validate from './validateInfo'
+import React, { useState } from 'react';
 import './Form.css'
+import axios from 'axios';
+import { Notification } from './Notification';
+
+// import useForm from './useForm';
+// import validate from './validateInfo'
 
 
-const FormSignup = ({submitForm }) => {
-    const { handleChange, values, handleSubmit, errors }
-    = useForm(submitForm, validate);
+function FormSignup() {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('')
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
     
+    const SignUp = async (e) => {
+        e.preventDefault();
+    }
+
+        axios.post('https://api.m3o.com/v1/user/Create', {
+            username:username,
+            password:password,
+            email: email
+        },
+        {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer MGQxMWFiY2EtNDk4NS00YmNhLTlmY2MtMThjZGRkODFmOWE2'
+        }
+        }).then(function (response) {
+            setSuccess(true);
+        }).catch(function (error) {
+            setError(true);
+        });
+        
+
+        
+
+
+
     return (
         
         <div className='form-content-left'>
-            <form className='form' onSubmit={handleSubmit}>
+
+
+            <form className='form' method='post' onSubmit={SignUp}>
                 
                 <h1>Cadastrar</h1>
 
@@ -46,7 +80,7 @@ const FormSignup = ({submitForm }) => {
                         <div className='form-inline'>
                             
                             <div className='form-inputs'>
-                                <label htmlFor='username'
+                                <label 
                                 className='form-label'>
                                 Nome
                                 </label>
@@ -57,14 +91,14 @@ const FormSignup = ({submitForm }) => {
                                 name="username"
                                 className="form-input"
                                 placeholder='Digite seu nome'
-                                value={values.username}
-                                onChange={handleChange}
+                                value={username}
+                                onChange={e => {setUsername(e.target.value)}}
                                 />
-                                {errors.username && <p>{errors.username}</p>}
+                                {/* {errors.username && <p>{errors.username}</p>} */}
                             </div>
 
                             <div className='form-inputs'>
-                                <label htmlFor='email'
+                                <label 
                                 className='form-label'>
                                 Email
                                 </label>
@@ -74,15 +108,15 @@ const FormSignup = ({submitForm }) => {
                                 name="email"
                                 className="form-input"
                                 placeholder='Digite seu email'
-                                value={values.email}
-                                onChange={handleChange}
+                                value={email}
+                                onChange={e => {setEmail(e.target.value)}}
                                 />
-                                {errors.email && <p>{errors.email}</p>}
+                                {/* {errors.email && <p>{errors.email}</p>} */}
                             </div>
                     </div>
 
                             <div className='form-inputs'>
-                                <label htmlFor='password'
+                                <label 
                                 className='form-label'>
                                 Senha
                                 </label>
@@ -92,10 +126,10 @@ const FormSignup = ({submitForm }) => {
                                 name="password"
                                 className="form-input"
                                 placeholder='Digite sua senha'
-                                value={values.password}
-                                onChange={handleChange}
+                                value={password}
+                                onChange={e => {setPassword(e.target.value)}}
                                 />
-                                {errors.password && <p>{errors.password}</p>}
+                                {/* {errors.password && <p>{errors.password}</p>} */}
                             </div>
                 </div>
             </div>            
@@ -105,7 +139,7 @@ const FormSignup = ({submitForm }) => {
                                 /><label for="termos_de_contrato">  Li e concordo com os termos de serviço e/ou Política de privacidade</label>
                             </div>
 
-                                <button className='form-input-btn' type='submit'>
+                                <button onClick={SignUp} className='form-input-btn' type='submit'>
                                     <img src='img/icon-arrow.png' alt='arrow' className='seta'/> 
                                 </button>
 
@@ -117,7 +151,10 @@ const FormSignup = ({submitForm }) => {
             </form>
             
         </div>
+
+
     )
+
 }
 
 export default FormSignup
